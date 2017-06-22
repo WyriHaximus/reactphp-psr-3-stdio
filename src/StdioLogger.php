@@ -33,6 +33,11 @@ final class StdioLogger extends AbstractLogger
     private $stdio;
 
     /**
+     * @var bool
+     */
+    private $hideLevel = false;
+
+    /**
      * LogglyLogger constructor.
      * @param LoopInterface $loop
      */
@@ -51,6 +56,13 @@ final class StdioLogger extends AbstractLogger
         $this->stdio = $stdio;
     }
 
+    public function withHideLevel(bool $hideLevel): StdioLogger
+    {
+        $clone = clone $this;
+        $clone->hideLevel = $hideLevel;
+        return $clone;
+    }
+
     public function log($level, $message, array $context = [])
     {
         $levels = self::LOG_LEVELS;
@@ -62,6 +74,9 @@ final class StdioLogger extends AbstractLogger
 
         $message = (string)$message;
         $message = processPlaceHolders($message, $context);
-        $this->stdio->write($level . ' ' . $message);
+        if ($this->hideLevel === false) {
+            $message = $level . ' ' . $message;
+        }
+        $this->stdio->write($message);
     }
 }
