@@ -21,6 +21,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         $stdio = $this->prophesize(Stdio::class);
         $stdio->write(Argument::that(function ($message) {
             $this->logs[] = $message;
+
             return true;
         }))->shouldBeCalled();
 
