@@ -31,10 +31,9 @@ final class StdioLogger extends AbstractLogger
     }
 
     /**
-     * LogglyLogger constructor.
      * @param LoopInterface $loop
      */
-    public static function create(LoopInterface $loop)
+    public static function create(LoopInterface $loop): StdioLogger
     {
         return new self(new Stdio($loop));
     }
