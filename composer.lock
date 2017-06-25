@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9d3459ca4dae77e7d076f1b52a167c4",
+    "content-hash": "b9ae80753ac6f68860b53041f6ead9c5",
     "packages": [
         {
             "name": "clue/stdio-react",
@@ -354,23 +354,28 @@
         },
         {
             "name": "wyrihaximus/psr-3-utilities",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-psr-3-utilities.git",
-                "reference": "c9640369eb9d2f41e623797633ffec9ffef7f8fc"
+                "reference": "dd7dcad2b857b0d565b3b66bae1af6320a2e8f09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-psr-3-utilities/zipball/c9640369eb9d2f41e623797633ffec9ffef7f8fc",
-                "reference": "c9640369eb9d2f41e623797633ffec9ffef7f8fc",
+                "url": "https://api.github.com/repos/WyriHaximus/php-psr-3-utilities/zipball/dd7dcad2b857b0d565b3b66bae1af6320a2e8f09",
+                "reference": "dd7dcad2b857b0d565b3b66bae1af6320a2e8f09",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": "^7.0",
+                "psr/log": "^1.0"
             },
             "require-dev": {
-                "api-clients/test-utilities": "^4.1"
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "jakub-onderka/php-console-highlighter": "^0.3.2",
+                "jakub-onderka/php-parallel-lint": "^0.9.2",
+                "phake/phake": "^2.3",
+                "phpunit/phpunit": "^5.7.15"
             },
             "type": "library",
             "autoload": {
@@ -392,8 +397,8 @@
                     "homepage": "http://wyrihaximus.net/"
                 }
             ],
-            "description": "Wrapping ticks into a promise",
-            "time": "2017-06-21 20:04:37"
+            "description": "PSR-3 logger utilities",
+            "time": "2017-06-25T19:24:36+00:00"
         }
     ],
     "packages-dev": [
@@ -2852,9 +2857,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wyrihaximus/psr-3-utilities": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

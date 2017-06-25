@@ -12,7 +12,7 @@
         "php": "^7.0",
         "clue/stdio-react": "^1.0",
         "psr/log": "^1.0",
-        "wyrihaximus/psr-3-utilities": "dev-master"
+        "wyrihaximus/psr-3-utilities": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.3",
