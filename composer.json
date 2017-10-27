@@ -8,9 +8,15 @@
             "email": "ceesjank@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/WyriHaximus-labs/php-stdio-react"
+        }
+    ],
     "require": {
         "php": "^7.0",
-        "clue/stdio-react": "^1.0",
+        "clue/stdio-react": "dev-async-STDOUT as 1.0.0",
         "psr/log": "^1.0",
         "wyrihaximus/psr-3-utilities": "^1.0"
     },
