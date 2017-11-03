@@ -8,12 +8,6 @@
             "email": "ceesjank@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/WyriHaximus-labs/php-stdio-react"
-        }
-    ],
     "require": {
         "php": "^7.0",
         "psr/log": "^1.0",
