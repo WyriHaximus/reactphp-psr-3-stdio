@@ -2,11 +2,12 @@
 
 namespace WyriHaximus\React\Tests\PSR3\Stdio;
 
-use Clue\React\Stdio\Stdio;
 use Prophecy\Argument;
+use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use Psr\Log\Test\LoggerInterfaceTest;
 use React\EventLoop\Factory;
+use React\Stream\WritableStreamInterface;
 use WyriHaximus\React\PSR3\Stdio\StdioLogger;
 
 final class StdioLoggerTest extends LoggerInterfaceTest
@@ -18,7 +19,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
 
     public function getLogger()
     {
-        $stdio = $this->prophesize(Stdio::class);
+        $stdio = $this->prophesize(WritableStreamInterface::class);
         $stdio->write(Argument::that(function ($message) {
             $this->logs[] = $message;
 
@@ -38,7 +39,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         $level = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(Stdio::class);
+        $stdio = $this->prophesize(WritableStreamInterface::class);
         $stdio->write($level . ' ' . $message)->shouldBeCalled();
 
         (new StdioLogger($stdio->reveal()))->log($level, $message);
@@ -49,7 +50,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         $level = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(Stdio::class);
+        $stdio = $this->prophesize(WritableStreamInterface::class);
         $stdio->write($message)->shouldBeCalled();
 
         (new StdioLogger($stdio->reveal()))->withHideLevel(true)->log($level, $message);
@@ -57,7 +58,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
 
     public function testImplements()
     {
-        self::assertInstanceOf('Psr\Log\LoggerInterface', StdioLogger::create(Factory::create()));
+        self::assertInstanceOf(LoggerInterface::class, StdioLogger::create(Factory::create()));
     }
 
     /**

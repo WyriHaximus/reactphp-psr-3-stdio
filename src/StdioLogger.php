@@ -5,6 +5,8 @@ namespace WyriHaximus\React\PSR3\Stdio;
 use Clue\React\Stdio\Stdio;
 use Psr\Log\AbstractLogger;
 use React\EventLoop\LoopInterface;
+use React\Stream\WritableResourceStream;
+use React\Stream\WritableStreamInterface;
 use function WyriHaximus\PSR3\checkCorrectLogLevel;
 use function WyriHaximus\PSR3\processPlaceHolders;
 
@@ -21,13 +23,13 @@ final class StdioLogger extends AbstractLogger
     private $hideLevel = false;
 
     /**
-     * @param Stdio $stdio
+     * @param WritableStreamInterface $stream
      *
      * @internal
      */
-    public function __construct(Stdio $stdio)
+    public function __construct(WritableStreamInterface $stream)
     {
-        $this->stdio = $stdio;
+        $this->stdio = $stream;
     }
 
     /**
@@ -35,7 +37,7 @@ final class StdioLogger extends AbstractLogger
      */
     public static function create(LoopInterface $loop): StdioLogger
     {
-        return new self(new Stdio($loop));
+        return new self(new WritableResourceStream(STDOUT, $loop));
     }
 
     public function withHideLevel(bool $hideLevel): StdioLogger
