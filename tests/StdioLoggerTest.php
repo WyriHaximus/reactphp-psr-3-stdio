@@ -56,6 +56,17 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->withHideLevel(true)->log($level, $message);
     }
 
+    public function testWriteMultiline()
+    {
+        $level = LogLevel::INFO;
+        $message = "a\r\nd\r\na\rs\na\r\nd\r\ns";
+
+        $stdio = $this->prophesize(WritableStreamInterface::class);
+        $stdio->write($level . ' ' . $message)->shouldBeCalled();
+
+        (new StdioLogger($stdio->reveal()))->log($level, $message);
+    }
+
     public function testImplements()
     {
         self::assertInstanceOf(LoggerInterface::class, StdioLogger::create(Factory::create()));
