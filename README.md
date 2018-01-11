@@ -29,6 +29,13 @@ When desired you can hide the log level from output by creating a logger that do
 $logger = StdioLogger::create($loop)->withHideLevel(true);
 ```
 
+Another option is to write a new line (`PHP_EOL`) after each line, it is off by default 
+but can be enabled with: 
+
+```php
+$logger = StdioLogger::create($loop)->withNewLine(true);
+```
+
 ## Contributing ##
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.

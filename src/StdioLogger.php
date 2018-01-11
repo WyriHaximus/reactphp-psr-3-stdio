@@ -12,6 +12,8 @@ use function WyriHaximus\PSR3\processPlaceHolders;
 
 final class StdioLogger extends AbstractLogger
 {
+    const NEW_LINE = PHP_EOL;
+
     /**
      * @var Stdio
      */
@@ -21,6 +23,11 @@ final class StdioLogger extends AbstractLogger
      * @var bool
      */
     private $hideLevel = false;
+
+    /**
+     * @var bool
+     */
+    private $newLine = false;
 
     /**
      * @param WritableStreamInterface $stream
@@ -48,6 +55,14 @@ final class StdioLogger extends AbstractLogger
         return $clone;
     }
 
+    public function withNewLine(bool $newLine): StdioLogger
+    {
+        $clone = clone $this;
+        $clone->newLine = $newLine;
+
+        return $clone;
+    }
+
     public function log($level, $message, array $context = [])
     {
         checkCorrectLogLevel($level);
@@ -55,6 +70,9 @@ final class StdioLogger extends AbstractLogger
         $message = processPlaceHolders($message, $context);
         if ($this->hideLevel === false) {
             $message = $level . ' ' . $message;
+        }
+        if ($this->newLine === true) {
+            $message .= self::NEW_LINE;
         }
         $this->stdio->write($message);
     }

@@ -56,6 +56,28 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->withHideLevel(true)->log($level, $message);
     }
 
+    public function testWriteNewLine()
+    {
+        $level = LogLevel::INFO;
+        $message = 'adasads';
+
+        $stdio = $this->prophesize(WritableStreamInterface::class);
+        $stdio->write($level . ' ' . $message . StdioLogger::NEW_LINE)->shouldBeCalled();
+
+        (new StdioLogger($stdio->reveal()))->withNewLine(true)->log($level, $message);
+    }
+
+    public function testWriteNewLineHideLevel()
+    {
+        $level = LogLevel::INFO;
+        $message = 'adasads';
+
+        $stdio = $this->prophesize(WritableStreamInterface::class);
+        $stdio->write($message . StdioLogger::NEW_LINE)->shouldBeCalled();
+
+        (new StdioLogger($stdio->reveal()))->withHideLevel(true)->withNewLine(true)->log($level, $message);
+    }
+
     public function testWriteMultiline()
     {
         $level = LogLevel::INFO;
