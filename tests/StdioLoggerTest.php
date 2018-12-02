@@ -10,6 +10,9 @@ use React\EventLoop\Factory;
 use React\Stream\WritableStreamInterface;
 use WyriHaximus\React\PSR3\Stdio\StdioLogger;
 
+/**
+ * @internal
+ */
 final class StdioLoggerTest extends LoggerInterfaceTest
 {
     /**
@@ -34,7 +37,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         return $this->logs;
     }
 
-    public function testWrite()
+    public function testWrite(): void
     {
         $level = LogLevel::INFO;
         $message = 'adasads';
@@ -45,7 +48,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->log($level, $message);
     }
 
-    public function testWriteHideLevel()
+    public function testWriteHideLevel(): void
     {
         $level = LogLevel::INFO;
         $message = 'adasads';
@@ -56,7 +59,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->withHideLevel(true)->log($level, $message);
     }
 
-    public function testWriteNewLine()
+    public function testWriteNewLine(): void
     {
         $level = LogLevel::INFO;
         $message = 'adasads';
@@ -67,7 +70,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->withNewLine(true)->log($level, $message);
     }
 
-    public function testWriteNewLineHideLevel()
+    public function testWriteNewLineHideLevel(): void
     {
         $level = LogLevel::INFO;
         $message = 'adasads';
@@ -78,7 +81,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->withHideLevel(true)->withNewLine(true)->log($level, $message);
     }
 
-    public function testWriteMultiline()
+    public function testWriteMultiline(): void
     {
         $level = LogLevel::INFO;
         $message = "a\r\nd\r\na\rs\na\r\nd\r\ns";
@@ -89,7 +92,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
         (new StdioLogger($stdio->reveal()))->log($level, $message);
     }
 
-    public function testImplements()
+    public function testImplements(): void
     {
         self::assertInstanceOf(LoggerInterface::class, StdioLogger::create(Factory::create()));
     }
@@ -97,7 +100,7 @@ final class StdioLoggerTest extends LoggerInterfaceTest
     /**
      * @expectedException \Psr\Log\InvalidArgumentException
      */
-    public function testThrowsOnInvalidLevel()
+    public function testThrowsOnInvalidLevel(): void
     {
         StdioLogger::create(Factory::create())->log('invalid level', 'Foo');
     }

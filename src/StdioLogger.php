@@ -63,7 +63,7 @@ final class StdioLogger extends AbstractLogger
         return $clone;
     }
 
-    public function log($level, $message, array $context = [])
+    public function log($level, $message, array $context = []): void
     {
         checkCorrectLogLevel($level);
         $message = (string)$message;
