@@ -185,16 +185,16 @@
         },
         {
             "name": "wyrihaximus/psr-3-utilities",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-psr-3-utilities.git",
-                "reference": "fc4713bb14701c1de95f5db94014b570b6e75d2a"
+                "reference": "27126a013401e48ffe3a32b632303884e195ec8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-psr-3-utilities/zipball/fc4713bb14701c1de95f5db94014b570b6e75d2a",
-                "reference": "fc4713bb14701c1de95f5db94014b570b6e75d2a",
+                "url": "https://api.github.com/repos/WyriHaximus/php-psr-3-utilities/zipball/27126a013401e48ffe3a32b632303884e195ec8d",
+                "reference": "27126a013401e48ffe3a32b632303884e195ec8d",
                 "shasum": ""
             },
             "require": {
@@ -226,7 +226,7 @@
                 }
             ],
             "description": "PSR-3 logger utilities",
-            "time": "2018-12-01T21:30:58+00:00"
+            "time": "2018-12-16T16:39:37+00:00"
         }
     ],
     "packages-dev": [
