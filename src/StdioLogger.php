@@ -12,7 +12,7 @@ use function WyriHaximus\PSR3\processPlaceHolders;
 
 final class StdioLogger extends AbstractLogger
 {
-    const NEW_LINE = PHP_EOL;
+    const NEW_LINE = \PHP_EOL;
 
     /**
      * @var Stdio
@@ -44,7 +44,7 @@ final class StdioLogger extends AbstractLogger
      */
     public static function create(LoopInterface $loop): StdioLogger
     {
-        return new self(new WritableResourceStream(STDOUT, $loop));
+        return new self(new WritableResourceStream(\STDOUT, $loop));
     }
 
     public function withHideLevel(bool $hideLevel): StdioLogger
