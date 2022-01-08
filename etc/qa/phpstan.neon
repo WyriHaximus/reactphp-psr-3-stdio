@@ -1,0 +1,7 @@
+parameters:
+	ergebnis:
+		classesAllowedToBeExtended:
+			- Psr\Log\AbstractLogger
+
+includes:
+	- ../../vendor/wyrihaximus/test-utilities/rules.neon

@@ -1,2 +1,4 @@
+etc/qa/.phpunit.result.cache
+var/*
+!var/.gitkeep
 vendor/
-token.php
