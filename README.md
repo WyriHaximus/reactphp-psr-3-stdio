@@ -5,14 +5,13 @@
 [![Total Downloads](https://poser.pugx.org/WyriHaximus/react-psr-3-stdio/downloads.png)](https://packagist.org/packages/WyriHaximus/react-psr-3-stdio/stats)
 [![Code Coverage](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-psr-3-stdio/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-psr-3-stdio/?branch=master)
 [![License](https://poser.pugx.org/WyriHaximus/react-psr-3-stdio/license.png)](https://packagist.org/packages/wyrihaximus/react-psr-3-stdio)
-[![PHP 7 ready](http://php7ready.timesplinter.ch/WyriHaximus/reactphp-psr-3-stdio/badge.svg)](https://travis-ci.org/WyriHaximus/reactphp-psr-3-stdio)
 
 ### Installation ###
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `^`.
 
 ```
-composer require wyrihaximus/react-psr-3-stdio 
+composer require wyrihaximus/react-psr-3-stdio
 ```
 
 ## Usage ##
@@ -29,8 +28,8 @@ When desired you can hide the log level from output by creating a logger that do
 $logger = StdioLogger::create($loop)->withHideLevel(true);
 ```
 
-Another option is to write a new line (`PHP_EOL`) after each line, it is off by default 
-but can be enabled with: 
+Another option is to write a new line (`PHP_EOL`) after each line, it is off by default
+but can be enabled with:
 
 ```php
 $logger = StdioLogger::create($loop)->withNewLine(true);
@@ -42,7 +41,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## License ##
 
-Copyright 2017 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
+Copyright 2025 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
