@@ -1,7 +1,11 @@
 parameters:
-	ergebnis:
-		classesAllowedToBeExtended:
-			- Psr\Log\AbstractLogger
-
-includes:
-	- ../../vendor/wyrihaximus/test-utilities/rules.neon
+	level: max
+	paths:
+		- ../../etc
+		- ../../src
+		- ../../tests
+	ignoreErrors:
+		-
+			identifier: method.childParameterType
+			path: ../../src/StdioLogger.php
+			count: 2

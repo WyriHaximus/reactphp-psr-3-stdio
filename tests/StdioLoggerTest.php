@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WyriHaximus\React\Tests\PSR3\Stdio;
 
+use Mockery;
+use PHPUnit\Framework\Attributes\Test;
 use Psr\Log\InvalidArgumentException;
 use Psr\Log\LogLevel;
 use React\Stream\WritableStreamInterface;
@@ -12,62 +14,68 @@ use WyriHaximus\TestUtilities\TestCase;
 
 final class StdioLoggerTest extends TestCase
 {
-    public function testWrite(): void
+    #[Test]
+    public function write(): void
     {
         $level   = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(WritableStreamInterface::class);
-        $stdio->write($level . ' ' . $message)->shouldBeCalled();
+        $stdio = Mockery::mock(WritableStreamInterface::class);
+        $stdio->expects('write')->with($level . ' ' . $message)->atLeast()->once();
 
-        (new StdioLogger($stdio->reveal()))->log($level, $message);
+        new StdioLogger($stdio)->log($level, $message);
     }
 
-    public function testWriteHideLevel(): void
+    #[Test]
+    public function writeHideLevel(): void
     {
         $level   = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(WritableStreamInterface::class);
-        $stdio->write($message)->shouldBeCalled();
+        $stdio = Mockery::mock(WritableStreamInterface::class);
+        $stdio->expects('write')->with($message)->atLeast()->once();
 
-        (new StdioLogger($stdio->reveal()))->withHideLevel(true)->log($level, $message);
+        new StdioLogger($stdio)->withHideLevel(true)->log($level, $message);
     }
 
-    public function testWriteNewLine(): void
+    #[Test]
+    public function writeNewLine(): void
     {
         $level   = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(WritableStreamInterface::class);
-        $stdio->write($level . ' ' . $message . StdioLogger::NEW_LINE)->shouldBeCalled();
+        $stdio = Mockery::mock(WritableStreamInterface::class);
+        $stdio->expects('write')->with($level . ' ' . $message . StdioLogger::NEW_LINE)->atLeast()->once();
 
-        (new StdioLogger($stdio->reveal()))->withNewLine(true)->log($level, $message);
+        new StdioLogger($stdio)->withNewLine(true)->log($level, $message);
     }
 
-    public function testWriteNewLineHideLevel(): void
+    #[Test]
+    public function writeNewLineHideLevel(): void
     {
         $level   = LogLevel::INFO;
         $message = 'adasads';
 
-        $stdio = $this->prophesize(WritableStreamInterface::class);
-        $stdio->write($message . StdioLogger::NEW_LINE)->shouldBeCalled();
+        $stdio = Mockery::mock(WritableStreamInterface::class);
+        $stdio->expects('write')->with($message . StdioLogger::NEW_LINE)->atLeast()->once();
 
-        (new StdioLogger($stdio->reveal()))->withHideLevel(true)->withNewLine(true)->log($level, $message);
+        new StdioLogger($stdio)->withHideLevel(true)->withNewLine(true)->log($level, $message);
     }
 
-    public function testWriteMultiline(): void
+    #[Test]
+    public function writeMultiline(): void
     {
         $level   = LogLevel::INFO;
         $message = "a\r\nd\r\na\rs\na\r\nd\r\ns";
 
-        $stdio = $this->prophesize(WritableStreamInterface::class);
-        $stdio->write($level . ' ' . $message)->shouldBeCalled();
+        $stdio = Mockery::mock(WritableStreamInterface::class);
+        $stdio->expects('write')->with($level . ' ' . $message)->atLeast()->once();
 
-        (new StdioLogger($stdio->reveal()))->log($level, $message);
+        new StdioLogger($stdio)->log($level, $message);
     }
 
-    public function testThrowsOnInvalidLevel(): void
+    #[Test]
+    public function throwsOnInvalidLevel(): void
     {
         self::expectException(InvalidArgumentException::class);
 
