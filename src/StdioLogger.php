@@ -24,16 +24,17 @@ final class StdioLogger implements LoggerInterface
 
     private bool $newLine = false;
 
-    /** @internal */
     public function __construct(private WritableStreamInterface $stdio)
     {
     }
 
+    /** @api */
     public static function create(): StdioLogger
     {
         return new self(new WritableResourceStream(STDOUT));
     }
 
+    /** @api */
     public function withHideLevel(bool $hideLevel): StdioLogger
     {
         $clone            = clone $this;
@@ -42,6 +43,7 @@ final class StdioLogger implements LoggerInterface
         return $clone;
     }
 
+    /** @api */
     public function withNewLine(bool $newLine): StdioLogger
     {
         $clone          = clone $this;
@@ -54,7 +56,6 @@ final class StdioLogger implements LoggerInterface
      * @param array<string, mixed> $context
      *
      * @inheritDoc
-     * @psalm-suppress MissingParamType
      * @phpstan-ignore typeCoverage.paramTypeCoverage
      */
     public function log($level, string|Stringable $message, array $context = []): void
