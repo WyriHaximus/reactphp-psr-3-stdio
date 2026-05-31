@@ -17,22 +17,21 @@ composer require wyrihaximus/react-psr-3-stdio
 ## Usage ##
 
 ```php
-$loop = Factory::create(); // ReactPHP event loop
-$logger = StdioLogger::create($loop);
+$logger = StdioLogger::create();
 $logger->info('log'); // Writes info log to STDOUT
 ```
 
 When desired you can hide the log level from output by creating a logger that doesn't write it:
 
 ```php
-$logger = StdioLogger::create($loop)->withHideLevel(true);
+$logger = StdioLogger::create()->withHideLevel(true);
 ```
 
 Another option is to write a new line (`PHP_EOL`) after each line, it is off by default
 but can be enabled with:
 
 ```php
-$logger = StdioLogger::create($loop)->withNewLine(true);
+$logger = StdioLogger::create()->withNewLine(true);
 ```
 
 ## Contributing ##
