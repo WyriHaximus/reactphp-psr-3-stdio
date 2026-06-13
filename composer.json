@@ -16,7 +16,7 @@
   },
   "require-dev": {
     "wyrihaximus/async-test-utilities": "^12.2.0",
-    "wyrihaximus/makefiles": "^0.10.6"
+    "wyrihaximus/makefiles": "^0.11.1"
   },
   "autoload": {
     "psr-4": {
@@ -44,6 +44,13 @@
       "php": "8.4.13"
     },
     "sort-packages": true
+  },
+  "extra": {
+    "wyrihaximus": {
+      "supported-features": {
+        "windows": false
+      }
+    }
   },
   "scripts": {
     "post-install-cmd": [
