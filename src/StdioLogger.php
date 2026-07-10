@@ -56,7 +56,6 @@ final class StdioLogger implements LoggerInterface
      * @param array<string, mixed> $context
      *
      * @inheritDoc
-     * @phpstan-ignore typeCoverage.paramTypeCoverage
      */
     public function log($level, string|Stringable $message, array $context = []): void
     {
