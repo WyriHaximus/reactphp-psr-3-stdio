@@ -6,7 +6,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-psr-3-stdio/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-psr-3-stdio/?branch=master)
 [![License](https://poser.pugx.org/WyriHaximus/react-psr-3-stdio/license.png)](https://packagist.org/packages/wyrihaximus/react-psr-3-stdio)
 
-### Installation ###
+## Installation
 
 To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `^`.
 
@@ -14,7 +14,7 @@ To install via [Composer](http://getcomposer.org/), use the command below, it wi
 composer require wyrihaximus/react-psr-3-stdio
 ```
 
-## Usage ##
+## Usage
 
 ```php
 $logger = StdioLogger::create();
@@ -34,13 +34,13 @@ but can be enabled with:
 $logger = StdioLogger::create()->withNewLine(true);
 ```
 
-## Contributing ##
+## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## License ##
+## License
 
-Copyright 2026 [Cees-Jan Kiewiet](http://wyrihaximus.net/)
+Copyright 2026 [Cees-Jan Kiewiet](https://github.com/WyriHaximus)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
