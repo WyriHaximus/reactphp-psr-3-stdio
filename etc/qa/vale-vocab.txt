@@ -364,6 +364,7 @@ SECONDS_PER_HOUR
 SECONDS_PER_MINUTE
 SECONDS_PER_WEEK
 SEPARATOR
+SHAs
 SQLite3
 SQLite3Exception
 SQLite3Result
@@ -406,6 +407,7 @@ StringValue
 Stringable
 Struct
 Syntax
+Testcontainers
 Text
 Throwable
 Timestamp
@@ -1126,14 +1128,17 @@ delete_directory
 delete_file
 dependency-injection
 deprecation-contracts
+deps
 depth
 detect_encoding
+dev
 dfs
 di-container
 dict
 die
 diff
 diff_by_key
+differ
 dir
 directed
 directoryexists
@@ -1619,6 +1624,7 @@ highlight_file
 highlight_string
 hmac
 hook
+hooks
 hrtime
 html
 html_entity_decode
@@ -1825,6 +1831,7 @@ ini_get_all
 ini_parse_quantity
 ini_restore
 ini_set
+inlined
 inotify_add_watch
 inotify_init
 inotify_rm_watch
@@ -2103,7 +2110,6 @@ locale_lookup
 locale_parse
 locale_set_default
 localeconv
-localheinz
 localtime
 log
 log10
@@ -2799,6 +2805,7 @@ preg_replace
 preg_replace_callback
 preg_replace_callback_array
 preg_split
+prepends
 prev
 print_r
 printf
@@ -2976,6 +2983,7 @@ replace_every
 replace_every_ci
 replace_with
 repo
+repos
 reproduce
 request_parse_body
 reset
@@ -3474,6 +3482,7 @@ substr
 substr_compare
 substr_count
 substr_replace
+subtargets
 sum
 sum_floats
 suppress
@@ -3484,7 +3493,6 @@ swoole_async_writefile
 swoole_event_defer
 swoole_event_del
 swoole_event_write
-symbol-parser
 symfony
 symlink
 symplify
@@ -3506,7 +3514,6 @@ that
 thatall
 thatnullor
 thecodingmachine
-theseer
 throwexception
 time
 time_nanosleep
@@ -3530,7 +3537,6 @@ to_intl_timezone
 to_iterator
 token_get_all
 token_name
-tokenizer
 tomasvotruba
 topological_sort
 touch
@@ -3745,6 +3751,7 @@ values
 var-exporter
 var_dump
 var_export
+variadic
 variant_date_to_timestamp
 variant_round
 vec
@@ -3761,6 +3768,7 @@ waterfall
 webmozart
 when
 width
+wordlists
 words
 wordwrap
 wrap
